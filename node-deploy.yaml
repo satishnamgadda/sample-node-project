@@ -1,0 +1,29 @@
+---
+apiVersion: app/v1
+kind: Deployment
+metadata: 
+  name: node-deploy
+  namespace: ingress-nginx
+spec:
+  minReadySeconds: 5
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-node
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      name: node
+      labels:
+        app: sample-node
+    spec:
+      containers:
+        - name: node-deploy-pod 
+          image: 590183724063.dkr.ecr.us-east-1.amazonaws.com/nodejs:1.1        
+          ports:
+            - containerPort: 3005
+              protocol: TCP  
