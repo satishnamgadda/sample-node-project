@@ -10,19 +10,19 @@ jobs:
 
   build:
 
-    runs-on: self-hosted
+    runs-on: node-runner
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag node:1.1
   deploy:
 
-    runs-on: self-hosted
+    runs-on: node-runner
 
     steps:
     - uses: actions/checkout@v4
     - name: deploy
-      run: docker container run -d -P --name container1 my-image-name:1747219108 
+      run: docker container run -d -P --name container1 my-image-name:1.1
 
     
