@@ -16,6 +16,15 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag node:${GITHUB_RUN_ID}
+    - name: Log in to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push Docker image
+      run: |
+        IMAGE_URI=935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:latest
+        docker tag node:${GITHUB_RUN_ID}  $IMAGE_URI 
+        docker push $IMAGE_URI
+
   deploy:
 
     runs-on: node-runner
