@@ -23,6 +23,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: deploy
-      run: docker container run -d -P --name container1 my-image-name:1.1
+      run: docker container run -d -P --name container1 node:1.1
 
     
