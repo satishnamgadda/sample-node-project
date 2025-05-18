@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag node:1.1
+      run: docker build . --file Dockerfile --tag node:${GITHUB_RUN_ID}
   deploy:
 
     runs-on: node-runner
@@ -23,6 +23,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: deploy
-      run: docker container run -d -P --name container1 node:1.1
+      run: docker container run -d -P --name container1 node:${GITHUB_RUN_ID}
 
     
