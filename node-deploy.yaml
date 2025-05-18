@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: node-deploy-pod 
-          image: 590183724063.dkr.ecr.us-east-1.amazonaws.com/nodejs:1.1        
+          image: 935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:latest       
           ports:
             - containerPort: 3005
               protocol: TCP  
