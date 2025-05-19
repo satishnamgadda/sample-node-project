@@ -21,7 +21,7 @@ jobs:
 
     - name: Build, tag, and push Docker image
       run: |
-        IMAGE_URI=935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:latest
+        IMAGE_URI=935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:${GITHUB_RUN_ID}
         docker tag node:${GITHUB_RUN_ID}  $IMAGE_URI 
         docker push $IMAGE_URI
 
