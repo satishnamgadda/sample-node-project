@@ -12,7 +12,7 @@ jobs:
     runs-on: node-runner
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
       - name: building docker image
         run: |
           docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
