@@ -18,4 +18,5 @@ jobs:
           docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
       - name: tagging
         run: |
-          docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}}    
+          docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}} 
+          docker push ${{ env.IMAGE_URI }}
