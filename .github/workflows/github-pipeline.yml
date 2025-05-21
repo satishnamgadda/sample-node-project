@@ -19,7 +19,7 @@ jobs:
       - name: log into ecr
         uses: aws-actions/amazon-ecr-login@v1
         with:
-		      aws-region: ap-south-2
+	  aws-region: ap-south-2
       - name: tagging and push 
         run: |
           docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}} 
