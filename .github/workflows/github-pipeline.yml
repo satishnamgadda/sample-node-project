@@ -8,7 +8,7 @@ env:
 jobs:
   build:
     name: this is build job
-    runs-on: [self-hosted, linux, x64 ] 
+    runs-on: node-runner
     steps:
       - name: checkout
         uses: actions/checkout@master
