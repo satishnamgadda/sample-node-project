@@ -16,10 +16,10 @@ jobs:
       - name: building docker image
         run: |
           docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
-      - name: log into ecr
-        env:
-	  AWS_REGION: ap-south-2
+      - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
+        with:
+          region: ap-south-2
       - name: tagging and push 
         run: |
           docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}} 
