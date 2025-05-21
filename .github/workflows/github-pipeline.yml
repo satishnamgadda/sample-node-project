@@ -1,0 +1,17 @@
+name: sample-node-pipeline
+on:
+  push:
+    branches:
+	    - master
+jobs:
+  build:
+    name: this is build job
+	runs-on: [self-hosted, linux, x64 ] 
+    env:
+      ENV: Dev	
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+      - name: building docker image
+        run: |
+          docker image build -t node:${{ env.ENV }}-${ GITHUB_RUN_NUMBER } .
