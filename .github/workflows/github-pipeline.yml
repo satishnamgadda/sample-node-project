@@ -4,7 +4,8 @@ on:
     branches:
       - master
 env:
-  ENV: Dev	      
+  ENV: Dev
+  IMAGE_URI: 935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:${{vars.NODE_ENV}}-${GITHUB_RUN_NUMBER}
 jobs:
   build:
     name: this is build job
@@ -15,3 +16,6 @@ jobs:
       - name: building docker image
         run: |
           docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
+      - name: tagging
+        run: |
+          docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}}    
