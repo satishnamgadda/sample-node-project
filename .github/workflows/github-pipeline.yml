@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@master
       - name: building docker image
         run: |
-          docker image build -t node:${{ env.ENV }}-${ GITHUB_RUN_NUMBER } .
+          docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
