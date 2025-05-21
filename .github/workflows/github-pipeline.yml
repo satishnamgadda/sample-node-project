@@ -17,7 +17,7 @@ jobs:
         run: |
           docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
       - name: log into ecr
-        uses: aws-actions/aws-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v1
       - name: tagging and push 
         run: |
           docker tag node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} ${{ env.IMAGE_URI	}} 
