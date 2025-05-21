@@ -2,13 +2,13 @@ name: sample-node-pipeline
 on:
   push:
     branches:
-	    - master
+      - master
+env:
+  ENV: Dev	      
 jobs:
   build:
     name: this is build job
-	runs-on: [self-hosted, linux, x64 ] 
-    env:
-      ENV: Dev	
+    runs-on: [self-hosted, linux, x64 ] 
     steps:
       - name: checkout
         uses: actions/checkout@master
