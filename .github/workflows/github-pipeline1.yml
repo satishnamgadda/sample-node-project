@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: build docker image
         run: |
-	  docker build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} --file=Dockerfile       
+	  docker build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} -f Dockerfile .       
