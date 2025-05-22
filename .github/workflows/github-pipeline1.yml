@@ -12,14 +12,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         
-build:
-  runs-on: self-hosted
-  steps:
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-    - name: Build Docker image (no push)
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: false
-        tags: node:${{ env.ENV }}-${GITHUB_RUN_NUMBER}        
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build Docker image (no push)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: node:${{ env.ENV }}-${GITHUB_RUN_NUMBER}        
