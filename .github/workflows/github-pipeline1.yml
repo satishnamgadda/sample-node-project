@@ -4,15 +4,10 @@ on:
     branches:
       - master
 env:
-  ENV: Dev
-  IMAGE_URI: 935549327939.dkr.ecr.ap-south-2.amazonaws.com/node:${{vars.NODE_ENV}}-${GITHUB_RUN_NUMBER}  
+  ENV: Dev	  
 jobs:
-  build:
-    name: this is build job
+  checkout:
     runs-on: aws
     steps:
       - name: checkout
-        uses: actions/checkout@master
-      - name: building docker image
-        run: |
-          docker image build -t node:${{ env.ENV }}-${GITHUB_RUN_NUMBER} .
+        uses: actions/checkout@v4
