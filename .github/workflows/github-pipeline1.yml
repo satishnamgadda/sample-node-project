@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: SonarQube Scan
-        uses: fedecalendino/sonarqube-scanner-trigger@v1.1.0
+        uses: fedecalendino/sonarqube-scanner-trigger@main
         with:
           host: ${{ secrets.HOST_URL }}
           login: ${{ secrets.SONAR_TOKEN }}
