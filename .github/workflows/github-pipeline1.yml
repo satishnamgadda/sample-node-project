@@ -17,13 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up Java 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'  
       - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@master
+        uses: fedecalendino/sonarqube-scanner-trigger@v1.1.0
         with:
           host: ${{ secrets.HOST_URL }}
           login: ${{ secrets.SONAR_TOKEN }}
