@@ -1,22 +1,24 @@
 name: sample-node-pipeline
 on:
   push:
-    branches: 
+    branches:
       - master
 env:
-  ENV: Dev	  
+  ENV: Dev
 jobs:
   checkout:
     runs-on: aws
     steps:
-      - name: checkout
-	uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
   sonarQubeTrigger:
-    runs-on: aws
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@master
-      with:
-        host: ${{ secrets.HOST_URL }}
-        login: ${{ secrets.SONAR_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: SonarQube Scan
+        uses: kitabisa/sonarqube-action@master
+        with:
+          host: ${{ secrets.HOST_URL }}
+          login: ${{ secrets.SONAR_TOKEN }}
