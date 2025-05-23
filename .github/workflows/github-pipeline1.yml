@@ -22,6 +22,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+            -Dsonar.projectKey=sample-node
             -Dsonar.host.url=${{ secrets.HOST_URL }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
